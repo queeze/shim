@@ -1,5 +1,5 @@
 ﻿/*
- *  Copyright (c) 2013-2015, Cureos AB.
+ *  Copyright (c) 2013-2016, Cureos AB.
  *  All rights reserved.
  *  http://www.cureos.com
  *
@@ -49,6 +49,9 @@ namespace System
 
         private AppDomain()
         {
+#if PCL
+            throw new PlatformNotSupportedException("PCL");
+#endif
         }
 
         #endregion
@@ -67,7 +70,11 @@ namespace System
         {
             get
             {
+#if PCL
+                throw new PlatformNotSupportedException("PCL");
+#else
                 return _currentDomain;
+#endif
             }
         }
 

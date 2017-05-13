@@ -1,5 +1,5 @@
 ﻿/*
- *  Copyright (c) 2013-2015, Cureos AB.
+ *  Copyright (c) 2013-2016, Cureos AB.
  *  All rights reserved.
  *  http://www.cureos.com
  *
@@ -36,6 +36,7 @@ using System.Threading;
 [assembly: TypeForwardedTo(typeof(Console))]
 [assembly: TypeForwardedTo(typeof(Converter<,>))]
 [assembly: TypeForwardedTo(typeof(DBNull))]
+[assembly: TypeForwardedTo(typeof(IConvertible))]
 [assembly: TypeForwardedTo(typeof(ResolveEventArgs))]
 [assembly: TypeForwardedTo(typeof(ResolveEventHandler))]
 

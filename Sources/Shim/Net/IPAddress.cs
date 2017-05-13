@@ -1,5 +1,5 @@
 ﻿/*
- *  Copyright (c) 2013-2015, Cureos AB.
+ *  Copyright (c) 2013-2016, Cureos AB.
  *  All rights reserved.
  *  http://www.cureos.com
  *
@@ -38,6 +38,9 @@ namespace System.Net
         /// <include file='../_Doc/System.xml' path='doc/members/member[@name="M:System.Net.IPAddress.#ctor(System.Int64)"]/*' />
         private IPAddress(long newAddress)
         {
+#if PCL
+            throw new PlatformNotSupportedException("PCL");
+#endif
             this.newAddress = newAddress;
         }
         

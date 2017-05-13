@@ -1,5 +1,5 @@
 ﻿/*
- *  Copyright (c) 2013-2015, Cureos AB.
+ *  Copyright (c) 2013-2016, Cureos AB.
  *  All rights reserved.
  *  http://www.cureos.com
  *
@@ -22,7 +22,7 @@
 namespace System
 {
     using System.Linq;
-        using System.Reflection;
+    using System.Reflection;
     using System.Globalization;
 
     /// <summary>
@@ -140,6 +140,67 @@ namespace System
 #endif
         }
 
+        /// <include file='_Doc/mscorlib.xml' path='doc/members/member[@name="M:System.Type.GetField(System.String,System.Reflection.BindingFlags)"]/*' />
+        /// <param name="type"><see cref="Type"/> object.</param>
+        public static FieldInfo GetField(this Type type, string name, BindingFlags bindingAttr)
+        {
+#if DOTNET || SILVERLIGHT
+            return type.GetField(name, bindingAttr);
+#elif NETFX_CORE
+            return
+                type.GetRuntimeFields()
+                    .Where(fi => AreBindingFlagsMatching(fi, bindingAttr))
+                    .SingleOrDefault(fi => fi.Name.Equals(name));
+#else
+            throw new PlatformNotSupportedException("PCL");
+#endif
+        }
+
+        /// <include file='_Doc/mscorlib.xml' path='doc/members/member[@name="M:System.Type.GetField(System.String)"]/*' />
+        /// <param name="type"><see cref="Type"/> object.</param>
+        public static PropertyInfo GetProperty(this Type type, string name)
+        {
+#if DOTNET || SILVERLIGHT
+            return type.GetProperty(name);
+#elif NETFX_CORE
+            return type.GetRuntimeProperty(name);
+#else
+            throw new PlatformNotSupportedException("PCL");
+#endif
+        }
+
+        /// <include file='_Doc/mscorlib.xml' path='doc/members/member[@name="M:System.Type.GetMethod(System.String,System.Type[])"]/*' />
+        /// <param name="type"><see cref="Type"/> object.</param>
+        public static MethodInfo GetMethod(this Type type, string name, Type[] types)
+        {
+#if DOTNET || SILVERLIGHT
+            return type.GetMethod(name, types);
+#elif NETFX_CORE
+            var typeInfo = type.GetTypeInfo();
+            foreach (var methodInfo in typeInfo.DeclaredMethods)
+            {
+                var methodTypes = methodInfo.GetParameters().Select(param => param.ParameterType).ToArray();
+                if (methodTypes.Length != types.Length)
+                {
+                    continue;
+                }
+                var use = true;
+                for (var i = 0; i < methodTypes.Length; ++i)
+                {
+                    if (methodTypes[i] != types[i])
+                    {
+                        use = false;
+                        break;
+                    }
+                }
+                if (use) return methodInfo;
+            }
+            return null;
+#else
+            throw new PlatformNotSupportedException("PCL");
+#endif
+        }
+
         /// <include file='_Doc/mscorlib.xml' path='doc/members/member[@name="M:System.Type.GetMethod(System.String,System.Reflection.BindingFlags)"]/*' />
         /// <param name="type"><see cref="Type"/> object.</param>
         public static MethodInfo GetMethod(this Type type, string name, BindingFlags bindingAttr)
@@ -166,6 +227,22 @@ namespace System
             return
                 type.GetRuntimeFields()
                     .Where(fieldInfo => AreBindingFlagsMatching(fieldInfo, bindingAttr))
+                    .ToArray();
+#else
+            throw new PlatformNotSupportedException("PCL");
+#endif
+        }
+
+        /// <include file='_Doc/mscorlib.xml' path='doc/members/member[@name="M:System.Type.GetMethods(System.Reflection.BindingFlags)"]/*' />
+        /// <param name="type"><see cref="Type"/> object.</param>
+        public static MethodInfo[] GetMethods(this Type type, BindingFlags bindingAttr)
+        {
+#if DOTNET || SILVERLIGHT
+            return type.GetMethods(bindingAttr);
+#elif NETFX_CORE
+            return
+                type.GetRuntimeMethods()
+                    .Where(methodInfo => AreBindingFlagsMatching(methodInfo, bindingAttr))
                     .ToArray();
 #else
             throw new PlatformNotSupportedException("PCL");

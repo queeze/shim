@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net.Shim", "Shim\_Net\Net.Shim.csproj", "{816E086D-DA84-4997-8BD9-448C92A1514F}"
 EndProject
@@ -21,6 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		..\README.md = ..\README.md
 		..\NuGet\shim.nuspec = ..\NuGet\shim.nuspec
+		..\NuGet\version.cmd = ..\NuGet\version.cmd
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit tests", "Unit tests", "{614D1BF4-2C5B-4269-A37F-35081D4E535D}"
@@ -52,10 +53,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portable259.Shim", "Shim\_P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Win81.Shim", "Shim\_Win81\Win81.Shim.csproj", "{B0773BAF-50E1-4C87-B863-CAAD804F8843}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UWP.Shim", "Shim\_UWP\UWP.Shim.csproj", "{7305ECB7-7102-4E92-BAB5-A2760C77BE76}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Shim\Shim.Shared.projitems*{97e26603-22f0-4f43-8140-20b7d44a2893}*SharedItemsImports = 4
 		..\UnitTests\Shim.Tests.Shared\Shim.Tests.Shared.projitems*{9acb59b3-90d7-4150-bc9e-918aef7e68ab}*SharedItemsImports = 4
+		Shim\Shim.Shared.projitems*{7305ecb7-7102-4e92-bab5-a2760c77be76}*SharedItemsImports = 4
 		Shim\Shim.Shared.projitems*{8464069a-34ad-49ee-ae4d-1213df8ba2b2}*SharedItemsImports = 4
 		Shim\Shim.Shared.projitems*{62d2c8bc-8690-4719-b213-4b68b1abdac9}*SharedItemsImports = 4
 		..\UnitTests\Shim.Tests.Shared\Shim.Tests.Shared.projitems*{e3a98d89-504b-4387-85d4-7f0c8fc1790c}*SharedItemsImports = 13
@@ -66,7 +70,6 @@ Global
 		..\UnitTests\Shim.Tests.Shared\Shim.Tests.Shared.projitems*{9e1902d0-6e48-46f9-bb9c-fe538d013085}*SharedItemsImports = 4
 		Shim\Shim.Shared.projitems*{31382903-e9db-4426-a85a-cf88f71b45f2}*SharedItemsImports = 4
 		Shim\Shim.Shared.projitems*{45c3cf7e-ed11-4baf-866a-b191f17d77c3}*SharedItemsImports = 4
-		Shim\Shim.Shared.projitems*{ab25d53a-a1c1-4815-9cc8-15012fb7e416}*SharedItemsImports = 4
 		Shim\Shim.Shared.projitems*{816e086d-da84-4997-8bd9-448c92a1514f}*SharedItemsImports = 4
 		Shim\Shim.Shared.projitems*{b0773baf-50e1-4c87-b863-caad804f8843}*SharedItemsImports = 4
 		Shim\Shim.Shared.projitems*{cb573e57-fef7-4fb0-8922-560a85d80f20}*SharedItemsImports = 13
@@ -141,6 +144,10 @@ Global
 		{B0773BAF-50E1-4C87-B863-CAAD804F8843}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0773BAF-50E1-4C87-B863-CAAD804F8843}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0773BAF-50E1-4C87-B863-CAAD804F8843}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7305ECB7-7102-4E92-BAB5-A2760C77BE76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7305ECB7-7102-4E92-BAB5-A2760C77BE76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7305ECB7-7102-4E92-BAB5-A2760C77BE76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7305ECB7-7102-4E92-BAB5-A2760C77BE76}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

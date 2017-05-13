@@ -1,5 +1,5 @@
 ﻿/*
- *  Copyright (c) 2013-2015, Cureos AB.
+ *  Copyright (c) 2013-2016, Cureos AB.
  *  All rights reserved.
  *  http://www.cureos.com
  *
@@ -36,6 +36,8 @@ namespace System.Collections.Generic
         {
 #if PCL
             throw new PlatformNotSupportedException("PCL");
+#elif NETFX_CORE
+            return new ReadOnlyCollection<T>(list);
 #else
             return list.AsReadOnly();
 #endif

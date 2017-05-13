@@ -1,5 +1,5 @@
 ﻿/*
- *  Copyright (c) 2013-2015, Cureos AB.
+ *  Copyright (c) 2013-2016, Cureos AB.
  *  All rights reserved.
  *  http://www.cureos.com
  *
@@ -19,9 +19,13 @@
  *  License along with Shim. If not, see <http://www.gnu.org/licenses/>.
  */
 
+using System;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Threading;
+
+// System
+[assembly: TypeForwardedTo(typeof(IConvertible))]
 
 // System.Reflection
 [assembly: TypeForwardedTo(typeof(BindingFlags))]

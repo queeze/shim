@@ -1,5 +1,5 @@
 ﻿/*
- *  Copyright (c) 2013-2015, Cureos AB.
+ *  Copyright (c) 2013-2016, Cureos AB.
  *  All rights reserved.
  *  http://www.cureos.com
  *
@@ -52,6 +52,7 @@ using Timer = System.Threading.Timer;
 [assembly: TypeForwardedTo(typeof(Converter<,>))]
 [assembly: TypeForwardedTo(typeof(DBNull))]
 [assembly: TypeForwardedTo(typeof(ICloneable))]
+[assembly: TypeForwardedTo(typeof(IConvertible))]
 [assembly: TypeForwardedTo(typeof(NonSerializedAttribute))]
 [assembly: TypeForwardedTo(typeof(NotFiniteNumberException))]
 [assembly: TypeForwardedTo(typeof(ResolveEventArgs))]
@@ -141,6 +142,7 @@ using Timer = System.Threading.Timer;
 // System.Runtime.Serialization
 [assembly: TypeForwardedTo(typeof(ISerializable))]
 [assembly: TypeForwardedTo(typeof(OptionalFieldAttribute))]
+[assembly: TypeForwardedTo(typeof(SerializationBinder))]
 [assembly: TypeForwardedTo(typeof(SerializationInfo))]
 
 // System.Runtime.Serialization.Formatters.Binary

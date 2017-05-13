@@ -1,5 +1,5 @@
 ﻿/*
- *  Copyright (c) 2013-2015, Cureos AB.
+ *  Copyright (c) 2013-2016, Cureos AB.
  *  All rights reserved.
  *  http://www.cureos.com
  *
@@ -42,7 +42,11 @@ namespace System.Diagnostics
         /// <include file='../_Doc/System.xml' path='doc/members/member[@name="M:System.Diagnostics.Process.#ctor"]/*' />
         public Process()
         {
+#if PCL
+            throw new PlatformNotSupportedException("PCL");
+#else
             _processorAffinity = new IntPtr((1 << Environment.ProcessorCount) - 1);
+#endif
         }
 
         #endregion
@@ -54,11 +58,19 @@ namespace System.Diagnostics
         {
             get
             {
+#if PCL
+                throw new PlatformNotSupportedException("PCL");
+#else
                 return _processorAffinity;
+#endif
             }
             set
             {
+#if PCL
+                throw new PlatformNotSupportedException("PCL");
+#else
                 _processorAffinity = value;
+#endif
             }
         }
 
@@ -69,7 +81,11 @@ namespace System.Diagnostics
         /// <include file='../_Doc/System.xml' path='doc/members/member[@name="M:System.Diagnostics.Process.GetCurrentProcess"]/*' />
         public static Process GetCurrentProcess()
         {
+#if PCL
+            throw new PlatformNotSupportedException("PCL");
+#else
             return _currentProcess;
+#endif
         }
 
         #endregion

@@ -112,6 +112,9 @@
     <Compile Include="..\ICloneable.cs">
       <Link>ICloneable.cs</Link>
     </Compile>
+    <Compile Include="..\IConvertible.cs">
+      <Link>IConvertible.cs</Link>
+    </Compile>
     <Compile Include="..\IO\DirectoryInfo.cs">
       <Link>IO\DirectoryInfo.cs</Link>
     </Compile>
@@ -160,6 +163,9 @@
     <Compile Include="..\Reflection\BindingFlags.cs">
       <Link>Reflection\BindingFlags.cs</Link>
     </Compile>
+    <Compile Include="..\Reflection\TargetException.cs">
+      <Link>Reflection\TargetException.cs</Link>
+    </Compile>
     <Compile Include="..\ResolveEventArgs.cs">
       <Link>ResolveEventArgs.cs</Link>
     </Compile>
@@ -171,6 +177,9 @@
     </Compile>
     <Compile Include="..\Runtime\Serialization\OptionalFieldAttribute.cs">
       <Link>Runtime\Serialization\OptionalFieldAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Runtime\Serialization\SerializationBinder.cs">
+      <Link>Runtime\Serialization\SerializationBinder.cs</Link>
     </Compile>
     <Compile Include="..\Runtime\Serialization\SerializationInfo.cs">
       <Link>Runtime\Serialization\SerializationInfo.cs</Link>

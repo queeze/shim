@@ -1,5 +1,5 @@
 ﻿/*
- *  Copyright (c) 2013-2015, Cureos AB.
+ *  Copyright (c) 2013-2016, Cureos AB.
  *  All rights reserved.
  *  http://www.cureos.com
  *
@@ -26,6 +26,23 @@ namespace System.Runtime.Serialization.Formatters.Binary
     /// <include file='../../../../_Doc/mscorlib.xml' path='doc/members/member[@name="T:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter"]/*' />
     public sealed class BinaryFormatter
     {
+        #region PROPERTIES
+
+        /// <include file='../../../../_Doc/mscorlib.xml' path='doc/members/member[@name="P:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Binder"]/*' />
+        public SerializationBinder Binder
+        {
+            get
+            {
+                throw new PlatformNotSupportedException("PCL");
+            }
+            set
+            {
+                throw new PlatformNotSupportedException("PCL");
+            }
+        }
+
+        #endregion
+
         #region METHODS
 
         /// <include file='../../../../_Doc/mscorlib.xml' path='doc/members/member[@name="M:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize(System.IO.Stream)"]/*' />

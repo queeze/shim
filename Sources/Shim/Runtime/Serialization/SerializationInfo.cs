@@ -1,5 +1,5 @@
 ﻿/*
- *  Copyright (c) 2013-2015, Cureos AB.
+ *  Copyright (c) 2013-2016, Cureos AB.
  *  All rights reserved.
  *  http://www.cureos.com
  *
@@ -28,6 +28,12 @@ namespace System.Runtime.Serialization
 
         /// <include file='../../_Doc/mscorlib.xml' path='doc/members/member[@name="M:System.Runtime.Serialization.SerializationInfo.AddValue(System.String,System.Double)"]/*' />
         public void AddValue(string name, double value)
+        {
+            throw new PlatformNotSupportedException("PCL");
+        }
+
+        /// <include file='../../_Doc/mscorlib.xml' path='doc/members/member[@name="M:System.Runtime.Serialization.SerializationInfo.GetValue(System.String,System.Type)"]/*' />
+        public object GetValue(string name, Type type)
         {
             throw new PlatformNotSupportedException("PCL");
         }

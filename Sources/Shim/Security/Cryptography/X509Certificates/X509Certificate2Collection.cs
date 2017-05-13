@@ -1,5 +1,5 @@
 ﻿/*
- *  Copyright (c) 2013-2015, Cureos AB.
+ *  Copyright (c) 2013-2016, Cureos AB.
  *  All rights reserved.
  *  http://www.cureos.com
  *
@@ -28,12 +28,14 @@ namespace System.Security.Cryptography.X509Certificates
     {
         #region METHODS
 
-        // TODO Examine which invoked methods in fo-dicom that are relying on List<>
-
         /// <include file='../../../_Doc/System.xml' path='doc/members/member[@name="M:System.Security.Cryptography.X509Certificates.X509Certificate2Collection.Find(System.Security.Cryptography.X509Certificates.X509FindType,System.Object,System.Boolean)"]/*' />
         public X509Certificate2Collection Find(X509FindType findType, object findValue, bool validOnly)
         {
+#if PCL
+            throw new PlatformNotSupportedException("PCL");
+#else
             return new X509Certificate2Collection();
+#endif
         }
 
         #endregion
